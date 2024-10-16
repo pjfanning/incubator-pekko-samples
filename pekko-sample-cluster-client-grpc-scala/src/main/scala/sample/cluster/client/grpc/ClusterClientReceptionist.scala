@@ -43,7 +43,7 @@ final class ClusterClientReceptionist(system: ExtendedActorSystem) extends Exten
   val settings: ClusterReceptionistSettings = ClusterReceptionistSettings(system)
   private val role: Option[String] = settings.role
 
-  private val log = Logging(system, getClass)
+  private val log = Logging(system, classOf[ClusterClientReceptionist])
 
   /**
    * Returns true if this member is not tagged with the role configured for the
