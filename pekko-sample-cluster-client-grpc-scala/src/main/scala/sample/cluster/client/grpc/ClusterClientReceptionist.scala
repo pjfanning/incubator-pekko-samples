@@ -91,8 +91,8 @@ final class ClusterClientReceptionist(system: ExtendedActorSystem) extends Exten
   private val server: Future[Http.ServerBinding] = {
     log.info("Starting ClusterClientReceptionist gRPC server at {}", settings.hostPort)
 
-    implicit val sys = system
-    implicit val materializer = Materializer(sys)
+    implicit val sys: ActorSystem = system
+    implicit val materializer: Materializer = Materializer(sys)
 
     val serialization = new ClusterClientSerialization(system)
 
